@@ -3,10 +3,6 @@ import {ImageBackground, KeyboardAvoidingView, StyleSheet} from 'react-native';
 
 const Background = ({children}) => (
     <ImageBackground
-        // dot
-        // source={require("../assets/background_dot.png")}
-        // resizeMode="repeat"
-
         style={styles.background}
     >
         <KeyboardAvoidingView style={styles.container} behavior="padding">

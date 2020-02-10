@@ -1,27 +1,25 @@
-import React, {memo} from "react";
+import React, { memo } from "react";
 import Background from "../reusable/Background";
 import Logo from "../reusable/Logo";
 import Header from "../reusable/Header";
 import Button from "../reusable/Button";
-import TextInput from "../reusable/TextInput";
-import BackButton from "../reusable/BackButton";
-import {theme} from "../core/theme";
-import {emailValidator, nameValidator, passwordValidator} from "../api/utils";
-import {signInUser} from "../api/auth-api";
-import Toast from "../reusable/BackButton";
+import Paragraph from "../reusable/Paragraph";
 
-const HomeScreen = ({navigation}) => (
-    <Background>
-        <Logo/>
-        <Header>WiCS-Hack</Header>
-        <Paragraph>HomeScreen</Paragraph>
-        <Button mode="contained" onPress={() => navigation.navigate("LoginScreen")}>
-            Login
-        </Button>
-        <Button mode="outlined" onPress={() => navigation.navigate("RegisterScreen")}>
-            Sign Up
-        </Button>
-    </Background>
+const HomeScreen = ({ navigation }) => (
+  <Background>
+    <Logo />
+    <Header>New Link</Header>
+    <Paragraph>Social Network for Amputees</Paragraph>
+    <Button mode="contained" onPress={() => navigation.navigate("LoginScreen")}>
+      Login
+    </Button>
+    <Button
+      mode="outlined"
+      onPress={() => navigation.navigate("RegisterScreen")}
+    >
+      Sign Up
+    </Button>
+  </Background>
 );
 
 export default memo(HomeScreen);

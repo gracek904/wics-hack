@@ -3,7 +3,6 @@ import {ActivityIndicator} from "react-native";
 import firebase from "firebase/app";
 import "firebase/auth";
 import Background from "../reusable/Background";
-
 import {theme} from "../core/theme";
 
 

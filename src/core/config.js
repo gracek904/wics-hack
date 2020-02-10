@@ -5,5 +5,5 @@ export const FIREBASE_CONFIG = {
     projectId: "wics-hack",
     storageBucket: "wics-hack.appspot.com",
     messagingSenderId: "855566184041",
-    appId: "1:855566184041:web:32e3aeb3e6f56850cbfcf8",
+    appId: "1:855566184041:web:32e3aeb3e6f56850cbfcf8"
 };

@@ -10,6 +10,7 @@ import {FIREBASE_CONFIG} from "./src/core/config";
 if (!firebase.apps.length) {
     firebase.initializeApp(FIREBASE_CONFIG);
 }
+
 let db = firebase.firestore();
 global.db = db;
 

@@ -3,7 +3,11 @@ import {createStackNavigator} from "react-navigation-stack";
 import {createBottomTabNavigator} from "react-navigation-tabs";
 import React from "react";
 
-import {AuthLoadingScreen, Dashboard, ForgotPasswordScreen, HomeScreen, LoginScreen, RegisterScreen,} from "../Auth";
+import {CreateScreen} from "../screens/CreateScreen";
+import {RecentScreen} from "../screens/RecentScreen";
+import {ProfileScreen} from "../screens/ProfileScreen";
+
+import {AuthLoadingScreen, Dashboard, ForgotPasswordScreen, HomeScreen, LoginScreen, RegisterScreen} from "../Auth";
 
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -15,81 +19,76 @@ const AuthNavigator = createSwitchNavigator(
         ForgotPasswordScreen,
         HomeScreen,
         LoginScreen,
-        RegisterScreen,
+        RegisterScreen
     },
     {
-        initialRouteName: "AuthLoadingScreen",
+        initialRouteName: "AuthLoadingScreen"
     }
 );
 
-// const Router = createStackNavigator(
-// 	{
-// 		Auth: AuthNavigator,
-// 		MapScreen,
-// 		Category,
-// 		CategoryMap,
-// 		DetailScreen,
-// 	},
-// 	{
-// 		initialRouteName: "Auth",
-// 		headerMode: "none",
-// 	}
-// );
+const Router = createStackNavigator(
+    {
+        Auth: AuthNavigator,
+        CreateScreen,
+        RecentScreen,
+        ProfileScreen
+    },
+    {
+        initialRouteName: "Auth",
+        headerMode: "none"
+    }
+);
 
 const bottomTab = createBottomTabNavigator(
     {
-        Default: {
+        Home: {
             screen: AuthNavigator,
             navigationOptions: {
-                tabBarLabel: "Auth",
+                tabBarLabel: "Home",
                 tabBarIcon: ({focused}) => (
-                    <Ionicons name="ios-home" size={30} color={`${focused ? "#006699" : "#cbd7b5"}`}/>
-                ),
-                style: {
-                    backgroundColor: "red",
-                },
-            },
+                    <Ionicons
+                        name="ios-home"
+                        size={30}
+                        color={`${focused ? "#B22234" : "#3C3B6E"}`}
+                    />
+                )
+            }
         },
-        Auth: {
-            screen: AuthNavigator,
-            navigationOptions: ({navigation}) => ({
-                title: "Auth",
+        Profile: {
+            screen: Router,
+            navigationOptions: {
+                tabBarLabel: "Profile",
                 tabBarIcon: ({focused}) => (
-                    <Icon name="user-circle" size={30} color={`${focused ? "#006699" : "#cbd7b5"}`}/>
-                ),
-            }),
-        },
+                    <Icon
+                        name="user-circle"
+                        size={30}
+                        color={`${focused ? "#B22234" : "#3C3B6E"}`}
+                    />
+                )
+            }
+        }
     },
     {
         navigationOptions: {
             tabBarOptions: {
-                activeTintColor: "#006699",
-                inactiveTintColor: "#cbd7b5",
+                activeTintColor: "#B22234",
+                inactiveTintColor: "#3C3B6E",
                 style: {
-                    backgroundColor: "#f2f2f2",
-                    height: 60,
-                },
-            },
-        },
+                    backgroundColor: "#FFFFFF",
+                    height: 60
+                }
+            }
+        }
     }
 );
 
-//Getting the tab header title
-// bottomTab.navigationOptions = ({ navigation }) => {
-//   const { routeName } = navigation.state.routes[navigation.state.index];
-//   const headerTitle = routeName;
-//   return {
-//     headerTitle
-//   };
-// };
-
 const bottomRouter = createStackNavigator(
     {
-        Bottom: bottomTab,
+        Bottom: bottomTab
     },
     {
         initialRouteName: "Bottom",
-        headerMode: "none",
+        headerMode: "none"
     }
 );
 

@@ -3,13 +3,13 @@ import 'firebase/auth';
 import 'firebase/firestore';
 
 export const logoutUser = () => {
-    firebase.auth().signOut();
+    firebase.auth().signOut().then();
 };
 
 export const signInUser = async ({name, email, password}) => {
     try {
         await firebase.auth().createUserWithEmailAndPassword(email, password);
-        firebase.auth().currentUser.updateProfile({
+        await firebase.auth().currentUser.updateProfile({
             displayName: name
         });
 
@@ -20,7 +20,7 @@ export const signInUser = async ({name, email, password}) => {
                 email,
                 name
             })
-            .then(console.log('created user db'));
+            .then();
 
         return {};
     } catch (error) {
