@@ -1,2 +1,1 @@
-# wics-hack
-## NewLink
+# NewLink
